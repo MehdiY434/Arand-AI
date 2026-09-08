@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f2ea" />
+    <title>دستنویس — تبدیل دست‌خط به متن</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="صفحه اصلی دستنویس">
+        <span class="brand-mark">
+          <svg viewBox="0 0 28 28" aria-hidden="true"><path d="M6 20.5 20.8 5.7a2 2 0 0 1 2.8 2.8L8.8 23.3 4 24l.7-4.8Z"/><path d="m17.8 8.7 2.8 2.8"/></svg>
+        </span>
+        <span>دستنویس</span>
+      </a>
+      <nav class="nav-links" aria-label="ناوبری اصلی">
+        <a class="active" href="#workspace">تبدیل متن</a>
+        <a href="#how">راهنما</a>
+        <a href="#history">تاریخچه</a>
+      </nav>
+      <button class="login-button" type="button">ورود به حساب</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow"><span></span> خواندنِ دوباره، آسان‌تر از همیشه</div>
+        <h1>دست‌خط شما،<br /><em>متنی آماده و خوانا</em></h1>
+        <p>تصویر یادداشت، جزوه یا نامه‌تان را بارگذاری کنید.<br />ما آن را در چند ثانیه به متن فارسی قابل ویرایش تبدیل می‌کنیم.</p>
+      </section>
+
+      <section class="workspace" id="workspace">
+        <article class="panel upload-panel">
+          <div class="panel-heading">
+            <div>
+              <span class="step">۰۱</span>
+              <h2>تصویر دست‌نوشته</h2>
+            </div>
+            <button class="text-button" id="clearButton" type="button">پاک کردن</button>
+          </div>
+
+          <input id="fileInput" type="file" accept="image/png,image/jpeg,image/webp" hidden />
+          <button class="drop-zone" id="dropZone" type="button">
+            <span class="upload-icon">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 22V6m0 0-6 6m6-6 6 6M6 20v5a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5"/></svg>
+            </span>
+            <strong>تصویر را اینجا رها کنید</strong>
+            <span>یا برای انتخاب فایل کلیک کنید</span>
+            <small>JPG، PNG یا WEBP — حداکثر ۱۰ مگابایت</small>
+            <img id="preview" alt="پیش‌نمایش دست‌نوشته بارگذاری‌شده" />
+          </button>
+
+          <div class="upload-tip">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v4m0 4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+            <span><b>نکته:</b> برای نتیجه بهتر، تصویر صاف، روشن و بدون سایه باشد.</span>
+          </div>
+        </article>
+
+        <div class="connector" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
+        </div>
+
+        <article class="panel result-panel">
+          <div class="panel-heading">
+            <div>
+              <span class="step">۰۲</span>
+              <h2>متن استخراج‌شده</h2>
+            </div>
+            <span class="status" id="status"><i></i> آماده</span>
+          </div>
+
+          <div class="result-box">
+            <div class="empty-state" id="emptyState">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 6h14l8 8v28H14V6Z"/><path d="M28 6v9h8M20 23h10M20 29h10M20 35h6"/></svg>
+              <strong>متن شما اینجا نمایش داده می‌شود</strong>
+              <span>ابتدا یک تصویر بارگذاری کنید</span>
+            </div>
+            <textarea id="resultText" aria-label="متن استخراج‌شده" spellcheck="false"></textarea>
+            <div class="loader" id="loader"><span></span><p>در حال خواندن دست‌خط…</p></div>
+          </div>
+
+          <div class="result-actions">
+            <button class="primary-button" id="copyButton" type="button" disabled>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
+              کپی متن
+            </button>
+            <button class="icon-button" id="downloadButton" type="button" disabled aria-label="دانلود متن">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 21h14"/></svg>
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <section class="trust-row" id="how">
+        <div><span>٪۹۸</span><p>دقت تشخیص<br /><small>برای تصاویر واضح</small></p></div>
+        <div><span>+۱۲</span><p>نوع دست‌خط<br /><small>فارسی و انگلیسی</small></p></div>
+        <div><span class="shield">◇</span><p>امن و خصوصی<br /><small>حذف خودکار تصاویر</small></p></div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status">متن کپی شد ✓</div>
+    <footer><span>ساخته‌شده برای خواناتر شدن ایده‌ها</span><span>دستنویس © ۱۴۰۵</span></footer>
+    <script src="app.js"></script>
+  </body>
+</html>
